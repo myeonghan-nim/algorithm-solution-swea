@@ -20,5 +20,4 @@ for t in range(int(input())):
                     arr.append(a // b)
         else:
             arr.append(int(cmd))
-
     print(f'#{t + 1} {res}')

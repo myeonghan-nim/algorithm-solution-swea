@@ -1,15 +1,15 @@
 for t in range(int(input())):
-    w, sen = input(), input()
+    word, sentence = input(), input()
 
     res = 0
-    while sen and not res:
-        if sen[:len(w)][-1] in w:
-            if sen[:len(w)][-1] == w[-1] and sen[:len(w)] == w:
+    while sentence and not res:
+        if sentence[:len(word)][-1] in word:
+            if sentence[:len(word)][-1] == word[-1] and sentence[:len(word)] == word:
                 res = 1
             else:
-                for i in range(len(w)):
-                    if sen[i:i + len(w)] == w:
+                for i in range(len(word)):
+                    if sentence[i:i + len(word)] == word:
                         res = 1
-        sen = sen[len(w):]
+        sentence = sentence[len(word):]
 
     print(f'#{t + 1} {res}')

@@ -1,11 +1,11 @@
 for t in range(int(input())):
-    w, sen = input(), input()
+    word, sentence = input(), input()
 
-    cnt, data = 0, set(w)
-    for c in data:
+    cnt, word_set = 0, set(word)
+    for w in word_set:
         res = 0
-        for raw in sen:
-            if c == raw:
+        for s in sentence:
+            if w == s:
                 res += 1
         cnt = max(cnt, res)
 
