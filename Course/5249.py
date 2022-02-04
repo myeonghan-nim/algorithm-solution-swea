@@ -3,6 +3,7 @@ def rep(n):
 
     while tree[n] != n:
         n = tree[n]
+
     return n
 
 
@@ -12,14 +13,12 @@ for t in range(int(input())):
         [tuple(map(int, input().split())) for _ in range(e)], key=lambda x: x[2]
     )
 
-    tree, cnt, s = [i for i in range(v + 1)], 0, 0
-    for e in edge:
-        a, b = rep(e[0]), rep(e[1])
+    tree, cnt, res = [i for i in range(v + 1)], 0, 0
+    for p in edge:
+        a, b = rep(p[0]), rep(p[1])
         if a != b:
-            tree[b] = a
-            s += e[2]
-            cnt += 1
+            tree[b], res, cnt = a, res + p[2], cnt + 1
             if cnt == v:
                 break
 
-    print(f'#{t + 1} {s}')
+    print(f'#{t + 1} {res}')

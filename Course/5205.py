@@ -1,10 +1,12 @@
 def partition(arr, left, right):
     p, i = arr[right], left - 1
+
     for j in range(left, right):
         if arr[j] <= p:
             i += 1
             arr[i], arr[j] = arr[j], arr[i]
     arr[i + 1], arr[right] = arr[right], arr[i + 1]
+
     return i + 1
 
 

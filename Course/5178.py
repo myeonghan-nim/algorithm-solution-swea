@@ -1,10 +1,10 @@
-def make(i, n):
+def find(i, n):
     global heap
 
     if i <= n:
         if heap[i]:
             return heap[i]
-        return make(i * 2, n) + make(i * 2 + 1, n)
+        return find(i * 2, n) + find(i * 2 + 1, n)
     else:
         return 0
 
@@ -19,6 +19,6 @@ for t in range(int(input())):
 
     for i in range(n, 0, -1):
         if not heap[i]:
-            heap[i] = make(i, n)
+            heap[i] = find(i, n)
 
     print(f'#{t + 1} {heap[l]}')

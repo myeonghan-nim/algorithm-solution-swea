@@ -1,16 +1,15 @@
-def charge(cnt, idx, l, n):
+def charge(cnt, idx, length, n):
     global arr, res
 
-    if l + idx >= n:
-        if res >= cnt:
-            res = cnt
+    if length + idx >= n:
+        res = min(res, cnt)
     else:
-        max_l, n_idx = 0, 0
-        for i in range(1, l + 1):
-            t = (idx + i) + arr[idx + i]
-            if max_l < t:
-                max_l, n_idx = t, idx + i
-        charge(cnt + 1, n_idx, arr[n_idx], n)
+        max_length, next_idx = 0, 0
+        for i in range(1, length + 1):
+            t = idx + i + arr[idx + i]
+            if max_length < t:
+                max_length, next_idx = t, idx + i
+        charge(cnt + 1, next_idx, arr[next_idx], n)
 
 
 for t in range(int(input())):

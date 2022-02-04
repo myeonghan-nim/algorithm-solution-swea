@@ -4,8 +4,7 @@ def merge(left, right):
     if left[-1] > right[-1]:
         cnt += 1
 
-    res = [0] * (len(left) + len(right))
-    i, j, idx = 0, 0, 0
+    res, i, j, idx = [0] * (len(left) + len(right)), 0, 0, 0
     while True:
         if i <= len(left) - 1 and j <= len(right) - 1:
             if left[i] <= right[j]:
@@ -27,14 +26,9 @@ def merge(left, right):
 
 
 def merge_sort(arr):
-    if len(arr) == 1:
-        return arr
-    else:
-        mid = len(arr) // 2
-        return merge(merge_sort(arr[:mid]), merge_sort(arr[mid:]))
+    return arr if len(arr) == 1 else merge(merge_sort(arr[:len(arr) // 2]), merge_sort(arr[len(arr) // 2:]))
 
 
 for t in range(int(input())):
-    n, arr = int(input()), list(map(int, input().split()))
-    cnt = 0
+    n, arr, cnt = int(input()), list(map(int, input().split())), 0
     print(f'#{t + 1} {merge_sort(arr)[n // 2]} {cnt}')

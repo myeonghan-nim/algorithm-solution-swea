@@ -1,5 +1,6 @@
 def check(arr):
     idx = [0] * 10
+
     for n in arr:
         idx[n] += 1
 
@@ -8,6 +9,7 @@ def check(arr):
             return 1
         if idx[i - 1] >= 1 and idx[i] >= 1 and idx[i + 1] >= 1:
             return 1
+
     return 0
 
 
