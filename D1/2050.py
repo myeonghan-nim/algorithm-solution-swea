@@ -1,1 +1,1 @@
-print(' '.join([str(ord(char) - 64) for char in input()]))
+print(' '.join([str(ord(c) - 64) for c in input()]))
